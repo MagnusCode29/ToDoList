@@ -1,0 +1,17 @@
+{% extends 'baseapp/maindesign.html' %}
+
+{% block areablock %}
+
+<div class = "bar">
+    <a href = "{% url 'home' %}">&#8592; Go Back</a>
+</div>
+
+<div class = "formbody">
+    <form method = "POST" action="">
+        {% csrf_token %}
+        <!--format the form as a paragraph-->
+        {{form.as_p}} 
+        <input class = "button" type = "submit" value = "Add Task">
+    </form>
+</div>
+{% endblock areablock %}

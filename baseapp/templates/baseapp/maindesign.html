@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>To-Do List</title>
+        <meta name="viewport" content = "width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&family=Ysabeau+SC:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <style>
+        body {
+            background-color: blanchedalmond;
+            font-family: 'Fira Sans', sans-serif;
+            padding-top: 40px;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: auto;
+            background-color: white;
+            -webkit-box-shadow: 2px 2px 13px -4px rgba(0,0,0,0.21);
+            box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+        }
+
+        h1,h2,h3,h4,h5,h6 {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        a,p {
+            color: black;
+        }
+
+        .bar {
+            display: flex;
+            padding: 16px;
+            justify-content: space-between;
+            border-radius: 5px 5px 0 0;
+            background: linear-gradient(to right, #0066ff, lightblue);
+        }
+
+        .bar a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .task-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-top: 1px solid rgb(226, 226, 226);
+        }
+
+        .title {
+            display: flex;
+        }
+
+        .title a {
+            margin-left: 10px;
+            color: rgb(61, 4, 97);
+        }
+
+        .complete-icon {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: green;
+        }
+
+        .incomplete-icon {
+            height: 20px;
+            width: 20px;
+            background-color: rgb(219, 220, 221);
+            border-radius: 50%;
+        }
+
+        .deleteTask {
+            color: red;
+            text-decoration: none;
+            line-height: 0;
+            font-size: 40px;
+        }
+
+        #searchbar-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        input[type=text], input[type=password], textarea {
+            border: 1px solid #ff1212;
+            border-radius: 5px;
+            padding: 10px;
+            width: 90%;
+        }
+
+        label {
+            padding-top: 10px;
+            display: block;
+        }
+
+        .button {
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            background-color: #FAFAFA;
+            border-radius: 5px;
+        }
+
+        .formbody {
+            padding: 20px;
+        }
+        
+    </style>
+    <!--in master template the "block" tag
+    is used. in all templates which inherit
+    from the master template will give their
+    own content in the block tags-->
+
+    <!--in this example our block is called as areablock-->
+    <body>
+        <div class = "container">
+            {% block areablock %}
+
+            {% endblock areablock %}
+        </div>
+    </body>
+</html>

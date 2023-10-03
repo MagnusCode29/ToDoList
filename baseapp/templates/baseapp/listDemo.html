@@ -1,0 +1,55 @@
+{% extends 'baseapp/maindesign.html' %}
+
+{% block areablock %}
+
+<div class = "bar">
+    <div>
+        <!--capitalize first letter-->
+        <h1>Hello, {{request.user|title}}</h1>
+        <h4><i>You have {{incompletetasks}} incomplete task{{ incompletetasks|pluralize:"s" }}</i></h4>
+    </div>
+    {% if request.user.is_authenticated %} 
+    <!--<p>{{request.user}}</p>to display username-->
+    <a href="{% url 'logO' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'loginpage' %}">Login</a>
+        <hr>
+    {% endif %}
+</div>
+
+<hr>
+
+<div id = "searchbar-wrap">
+    <form method = "GET" style = "margin-top:20px; display: flex;">
+        <input type = "text" name = "searchbar" value = "{{search_items}}">
+        <input class = "button" type = "submit" value = "search">
+    </form>
+    <a href = "{% url 'add-task' %}">ADD</a>
+</div>
+
+<br><br>
+
+
+<div class = "item-wrapper">
+    {% for task in tasks %} <!--check models.py for object_list explanation-->
+    <div class = "task-wrapper">
+        {% if task.completed %}
+        <div class = "title">
+            <div class = "complete-icon"></div>
+            <i><a href = "{% url 'update-task' task.id %}">{{task}}</a></i>
+        </div>
+        <a class="deleteTask" href = "{% url 'delete.task' task.id %}">&#215;</a>
+        {% else %}
+        <div class = "title">
+            <div class = "incomplete-icon"></div>
+            <a href = "{% url 'update-task' task.id %}">{{task}}</a>
+        </div>
+        <a class = "deleteTask" href = "{% url 'delete.task' task.id %}">&#215;</a>
+        {% endif %}
+</div>
+
+{% empty %}
+<h3>No tasks scheduled!</h3>
+{% endfor %}
+
+{% endblock areablock %}

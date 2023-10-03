@@ -1,0 +1,8 @@
+<!--{{object}} instead of {{object_list}} used in todotasks_list.html-->
+
+<!--default object is changed to task in views.py using context_object_name-->
+{% extends 'baseapp/maindesign.html' %}
+
+{% block areablock %}
+<h1>Hello! Your {{task}}</h1>
+{% endblock areablock %}

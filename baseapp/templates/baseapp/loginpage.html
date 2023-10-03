@@ -1,0 +1,19 @@
+{% extends 'baseapp/maindesign.html' %}
+{% block areablock %}
+
+<div class = "bar">
+    <h1>Login to your account</h1>
+</div>
+
+<div class = "formbody">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class = "button" type = "submit" value = "Login">
+    </form>
+    <br>
+    <hr>
+    <p>Don't have an account? <a href = "{% url 'regist' %}">Click here to register</a></p>
+</div>
+
+{% endblock areablock %}

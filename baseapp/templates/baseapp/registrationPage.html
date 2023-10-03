@@ -1,0 +1,25 @@
+{% extends 'baseapp/maindesign.html' %}
+{% block areablock %}
+
+<div class = "bar">
+    <h1>Create a new account</h1>
+</div>
+
+<div class = "formbody">
+    <form method="POST">
+        {% csrf_token %}
+        <label>{{form.username.label}}</label>
+        {{form.username}}
+        <label>{{form.password1.label}}</label>
+        {{form.password1}}
+        <label>{{form.password2.label}}</label>
+        {{form.password2}}
+        <input style = "margin-top:16px" class = "button" type = "submit" value = "Register">
+    </form>
+    <br>
+    <hr>
+    <p>Already have an account? <a href = "{% url 'loginpage' %}">Click here to sign-in</a></p>
+</div>
+
+
+{% endblock areablock %}
